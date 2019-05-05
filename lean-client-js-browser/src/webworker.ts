@@ -4,6 +4,7 @@ import {ErrorRes, Req, Res, StartWorkerReq} from './webworkertypes';
 
 export class WebWorkerTransport implements Transport {
     opts: LeanJsOpts;
+    conn: WebWorkerConnection;
 
     constructor(opts: LeanJsOpts) {
         this.opts = opts;
@@ -15,15 +16,15 @@ export class WebWorkerTransport implements Transport {
             command: 'start-webworker',
             opts: this.opts,
         } as StartWorkerReq);
-        const conn = new WebWorkerConnection(worker);
+        this.conn = new WebWorkerConnection(worker);
         worker.onmessage = (e) => {
             const res = e.data as Res;
             switch (res.response) {
-                case 'error': conn.error.fire((res as ErrorRes).error); break;
-                default: conn.jsonMessage.fire(res);
+                case 'error': this.conn.error.fire((res as ErrorRes).error); break;
+                default: this.conn.jsonMessage.fire(res);
             }
         };
-        return conn;
+        return this.conn;
     }
 }
 

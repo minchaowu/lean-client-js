@@ -6,7 +6,12 @@ export interface StartWorkerReq {
     opts: LeanJsOpts;
 }
 
-export type Req = StartWorkerReq | Request;
+export interface LoadZipReq {
+    command: 'load-zip';
+    url: string;
+}
+
+export type Req = StartWorkerReq | LoadZipReq | Request;
 
 export interface ErrorRes {
     response: 'webworker-error';
