@@ -1,0 +1,46 @@
+{
+  "name": "@minchaowu/lean-explode-html",
+  "version": "1.4.0",
+  "description": "Convert Lean's explode output to html",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "unpkg": "dist/leanBrowser.js",
+  "jsdelivr": "dist/leanBrowser.js",
+  "files": [
+    "/lib/*",
+    "/src/*",
+    "/demo.tsx",
+    "/lib_test.html",
+    "/README.md",
+    "/tsconfig.json",
+    "/webpack.config.js",
+    "/dist/leanBrowser.js"
+  ],
+  "keywords": [],
+  "author": {
+    "name": "Minchao Wu",
+    "email": "logic.mcwu@gmail.com"
+  },
+  "contributors": [
+      "Gabriel Ebner <gebner@gebner.org>",
+      "Bryan Gin-ge Chen <bryangingechen@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minchaowu/lean-client-js"
+  },
+  "scripts": {
+    "compile": "tsc -w -p ./"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+      "@types/dropboxjs": "0.0.29",
+      "@types/filesystem": "0.0.28",
+      "@types/node": "=8.0.19",
+      "browserfs": "^1.4.3",
+      "lean-client-js-core": "^1.2.12",
+      "lean-client-js-browser": "^1.4.0",
+      "react": "^16.13.1",
+      "react-dom": "^16.13.1"
+  }    
+}
